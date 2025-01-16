@@ -1,0 +1,25 @@
+<template>
+    <lightning-card title = "Product" icon-name = "custom:custom63">
+        <div class = "slds-p-around_medium">
+            <lightning-input type = "text" label="Search Term" value={searchTerm} onchange={handleSearchChange}></lightning-input>
+            <lightning-input type = "number" label ="Min Price" value={minPrice} onchange={handleMinPriceChange}></lightning-input>
+            <lightning-input type = "number" label ="Max Price" value={maxPrice} onchange={handleMaxPriceChange}></lightning-input>
+            <lightning-input type = "number" label ="Min Rating" value={minRating} onchange={handleMinPriceChange}></lightning-input>
+            <lightning-input type = "boolean" label ="In Stock only" checked={inStockOnly} onchange={handleInStockToggle}></lightning-input>
+        </div>
+        <!-- Product list selection -->
+         <template if:true = {products}>
+            <div class = "slds-grid slds-wrap slds-p-around_medium" >
+                <template for:each={products} for:item="product">
+                    <div key={product.id} class="slds-col slds-size_1-of-3 slds-p-around_small">
+                        <lightning-card title= {Product_Name__c} icon-name="custom:custom26">
+                            <p class="slds-p-horizontal-medium">
+
+                            </p>
+                        </lightning-card>
+                    </div>
+                </template>
+            </div>
+         </template>
+    </lightning-card>
+</template>
