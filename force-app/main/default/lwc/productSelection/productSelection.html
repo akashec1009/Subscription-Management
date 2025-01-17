@@ -4,7 +4,7 @@
             <lightning-input type = "text" label="Search Term" value={searchTerm} onchange={handleSearchChange}></lightning-input>
             <lightning-input type = "number" label ="Min Price" value={minPrice} onchange={handleMinPriceChange}></lightning-input>
             <lightning-input type = "number" label ="Max Price" value={maxPrice} onchange={handleMaxPriceChange}></lightning-input>
-            <lightning-input type = "number" label ="Min Rating" value={minRating} onchange={handleMinPriceChange}></lightning-input>
+            <lightning-input type = "number" label ="Min Rating" value={minRating} onchange={handleMinRatingChange}></lightning-input>
             <lightning-input type = "boolean" label ="In Stock only" checked={inStockOnly} onchange={handleInStockToggle}></lightning-input>
         </div>
         <!-- Product list selection -->
@@ -14,12 +14,22 @@
                     <div key={product.id} class="slds-col slds-size_1-of-3 slds-p-around_small">
                         <lightning-card title= {Product_Name__c} icon-name="custom:custom26">
                             <p class="slds-p-horizontal-medium">
-
+                                <strong> Price : </strong> ${product.price} <br />
+                                <strong> Rating : </strong> {product.rating} <br />
+                                <strong> Stock Availability </strong> {product.stockAvailablity}
+ 
                             </p>
+                            <lightning-button label = "Select" variant="brand" onclick={handleProductSelection} data-id={product.Id}></lightning-button>
                         </lightning-card>
                     </div>
                 </template>
             </div>
+         </template>
+         <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading......"></lightning-spinner>
+         </template>
+         <template if:true={error}>
+            <div class = "slds-text-color_error slds-p-around_medium">{error}</div>
          </template>
     </lightning-card>
 </template>

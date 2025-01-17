@@ -9,7 +9,7 @@ public with sharing class ProductSelectionController {
      * 
      */
     @AuraEnabled(cacheable = true)
-    public static List<ProductWrapper> fetchProduct(String searchTerm, Decimal minPrice, Decimal maxPrice, Decimal minRating, boolean inStockOnly){
+    public static List<ProductWrapper> fetchProducts(String searchTerm, Decimal minPrice, Decimal maxPrice, Decimal minRating, boolean inStockOnly){
         try{
             //Base query to fetch Active product
             String query = 'SELECT Product_Name__c, Price__c, Product_Rating__c, Stock_Availability__c,Category__c FROM Product__c WHERE Stock_Availability__c =true';
