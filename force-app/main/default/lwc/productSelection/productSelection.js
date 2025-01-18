@@ -45,8 +45,7 @@ export default class ProductSelection extends LightningElement {
             this.isLoading = false;
         });
     }
-    /**
-     *     handleProductSelection(event){
+      handleProductSelection(event){
         const selectedProductId = event.target.dataset.id;
          // Fire a custom event to notify the parent component
         const selectEvent = new CustomEvent('product select', {
@@ -54,9 +53,4 @@ export default class ProductSelection extends LightningElement {
         });
         this.dispatchEvent(selectEvent);
     }
-     * 
-     */
-
-
-
 }

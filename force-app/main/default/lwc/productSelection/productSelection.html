@@ -1,11 +1,11 @@
 <template>
     <lightning-card title = "Product" icon-name = "custom:custom63">
         <div class = "slds-p-around_medium">
-            <lightning-input type = "text" label="Search Term" value={searchTerm} onchange={handleSearchChange}></lightning-input>
-            <lightning-input type = "number" label ="Min Price" value={minPrice} onchange={handleMinPriceChange}></lightning-input>
-            <lightning-input type = "number" label ="Max Price" value={maxPrice} onchange={handleMaxPriceChange}></lightning-input>
-            <lightning-input type = "number" label ="Min Rating" value={minRating} onchange={handleMinRatingChange}></lightning-input>
-            <lightning-input type = "boolean" label ="In Stock only" checked={inStockOnly} onchange={handleInStockToggle}></lightning-input>
+            <lightning-input type = "text" label="Search Product By Name" value={searchTerm} onchange={handleInputChange}></lightning-input>
+            <lightning-input type = "number" label ="Min Price" value={minPrice} onchange={handleInputChange}></lightning-input>
+            <lightning-input type = "number" label ="Max Price" value={maxPrice} onchange={handleInputChange}></lightning-input>
+            <lightning-input type = "number" label ="Min Rating" value={minRating} onchange={handleInputChange}></lightning-input>
+            <lightning-input type = "boolean" label ="In Stock only" checked={inStockOnly} onchange={handleInputChange}></lightning-input>
         </div>
         <!-- Product list selection -->
          <template if:true = {products}>
