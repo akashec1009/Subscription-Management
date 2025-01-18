@@ -1,5 +1,5 @@
 import { LightningElement, track} from 'lwc';
-import fetchProducts from '@salesforce/apex/c/productSelectionController.fetchProducts'
+import fetchProducts from '@salesforce/apex/ProductSelectionController.fetchProducts'
 
 export default class ProductSelection extends LightningElement {
     @track searchTerm = '';
@@ -26,7 +26,7 @@ export default class ProductSelection extends LightningElement {
     handleInStockToggle(event){
         this.inStockOnly = event.target.checked;
     }
-    fetchFilteredProduct(){
+    fetchFilteredProducts(){
         this.isLoading = true;
         this.error = null;
         fetchProducts({
@@ -45,5 +45,18 @@ export default class ProductSelection extends LightningElement {
             this.isLoading = false;
         });
     }
+    /**
+     *     handleProductSelection(event){
+        const selectedProductId = event.target.dataset.id;
+         // Fire a custom event to notify the parent component
+        const selectEvent = new CustomEvent('product select', {
+            detail : { productId : selectedProductId }
+        });
+        this.dispatchEvent(selectEvent);
+    }
+     * 
+     */
+
+
 
 }
